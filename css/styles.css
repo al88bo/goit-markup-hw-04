@@ -8,6 +8,8 @@
   --green: #31d0aa;
   --white: #ffffff;
   --lightslate: #8e8f99;
+  --dairy: #fcfcfc;
+  --navyblue-modal: rgba(46, 47, 66, 0.4);
 }
 p,
 h1,
@@ -481,7 +483,8 @@ main {
 .project-link:is(:hover, :focus) .container-overlay-paragraph {
   transform: translateY(0%);
 }
-.project-link:hover {
+.project-link:hover,
+.project-link:focus {
   box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 .container-overlay {
@@ -496,7 +499,7 @@ main {
   height: 100%;
   top: 0;
   transform: translateY(100%);
-  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   padding: 40px 32px;
   color: var(--cloud);
   background-color: var(--iris);
@@ -509,4 +512,54 @@ main {
   border-bottom: 1px solid var(--cornflower);
   border-left: 1px solid var(--cornflower);
   padding: 32px 16px;
+}
+
+/*  ------------------  M O D A L   W I N D O W */
+.backdrop {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--navyblue-modal);
+  transition: opacity 350ms linear, visibility 350ms linear;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.modal-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 300ms linear;
+  /* margin: auto; */
+  width: 408px;
+  min-height: 584px;
+  border-radius: 4px;
+  background-color: var(--dairy);
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2), 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
+}
+.backdrop.is-hidden .modal-window {
+  transform: translate(-50%, -50%) scale(10);
+}
+.modal-button-close {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--cornflower);
+  top: 24px;
+  right: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.icon-close {
+  fill: var(--navyblue);
+}
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }

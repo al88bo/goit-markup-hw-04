@@ -39,6 +39,11 @@ a {
 button {
   padding: 0;
   cursor: pointer;
+  font-family: inherit;
+  color: currentColor;
+}
+input {
+  font-family: inherit;
 }
 body {
   font-family: "Roboto", sans-serif;
